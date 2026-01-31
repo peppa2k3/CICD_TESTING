@@ -18,6 +18,9 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Explore-Actions_2:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: production
+      JWT_SECRET: hduahsdoas
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -32,8 +35,6 @@ jobs:
           ls ${{ github.workspace }}
       - name: Create .env file
         run: |
-          echo "NODE_ENV=production" >> .env
-          echo "JWT_SECRET=secrets.JWT_SECRET" >> .env
           cat .env
           ls -a
       - run: echo "🍏 This job's status is ${{ job.status }}."
