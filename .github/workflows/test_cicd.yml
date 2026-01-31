@@ -30,4 +30,10 @@ jobs:
         run: |
           mkdir whowhowho
           ls ${{ github.workspace }}
+      - name: Create .env file
+        run: |
+          echo "NODE_ENV=production" >> .env
+          echo "JWT_SECRET=secrets.JWT_SECRET" >> .env
+          cat .env
+          ls -a
       - run: echo "🍏 This job's status is ${{ job.status }}."
